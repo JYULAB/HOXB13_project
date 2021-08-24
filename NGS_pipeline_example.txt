@@ -1,0 +1,28 @@
+makeTagDirectory tag1045 1045.bed
+findPeaks tag1045 -style factor -o 1045_peak
+annotatePeaks.pl 1045_peak hg19 > 1045_annotation.txt
+makeUCSCfile tagm57 -o auto -norm 2e7
+findMotifsGenome.pl 1045_peak hg19 1045_MotifOutput/ 
+
+module load STAR
+module load python
+module load samtools
+for i in {277..282}
+do
+STAR --genomeLoad LoadAndKeep --genomeDir /projects/p20023/Software/STAR_HG_genomeDir --runThreadN 2 --quantMode GeneCounts --readFilesIn mr${i}.fastq --outFileNamePrefix mr${i} --outReadsUnmapped Fastx
+rm mr${i}Aligned.out.sam
+done
+
+BETA plus -p /home/czh344/Downloads/762_peaks.bed -e /home/czh344/Downloads/mr88-91.txt -k BSF -g hg19 --gname2 --info 1,2,3 --df 0.1 -c 0.5 --pn 40000 --da 500 --gs /home/czh344/hg19.fa -n 762_mr88-91 -o 762_mr88-91_plus
+
+module load samtools
+bowtie2 -x /projects/p20023/Software/bowtie2/indexes/hg19 -U m29.fastq -S m29.sam
+samtools view -b -S m29.sam > m29.bam
+samtools view -b -F 4 m29.bam > m29mapped.bam
+module load python/anaconda3.6
+samtools sort -o m29_sorted.bam m29mapped.bam
+samtools index m29_sorted.bam
+bamCoverage --bam m29_sorted.bam --outFileName m29.bw --normalizeUsing CPM --extendReads 200 --numberOfProcessors 8 --binSize 20
+module load python/anaconda3.6
+computeMatrix reference-point --referencePoint center --missingDataAsZero -S m29.bw m658.bw m650.bw m487.bw m415.bw m401.bw m470.bw m682.bw -R m29_peak_for_heatmap.txt -a 5000 -b 5000 -o m29_in_m29_m658_m650_m487_m415_m401_m470_m682_matrix -bs 20 --samplesLabel HOXB13 H3k4me1 H3k27ac H3k4me3 H3k27me3 PolII HDAC1 HDAC3 -p 16
+plotHeatmap -m m29_in_m29_m658_m650_m487_m415_m401_m470_m682_matrix -out m29_in_m29_m658_m650_m487_m415_m401_m470_m682_matrix_heatmap_5cluster.pdf --colorList 'white, salmon' --whatToShow 'heatmap and colorbar' --kmean 5 --dpi 300 --refPointLabel "center" --xAxisLabel ""
