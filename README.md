@@ -1,5 +1,6 @@
 # HOXB13_project
 DESeq2_example.R:  R code example to do Gene-level differential expression analysis with DESeq2 for RNA-seq NGS data (e.g. fig1A genes)
+
 Hist.R and MakeCurve2PDF.pl: R/perl code example to draw intensity plots (e.g. fig3E and fig3I)
 MA_plot_example.R: R code example to draw MA plots (e.g. fig3D and figS3C)
 NGS_pipeline_example.txt: pipeline to process ChIP-seq and RNA-seq NGS data. BETA command for fig1G and deepTools commands to plot heatmaps (e.g. fig1H, fig3B and fig3C)
