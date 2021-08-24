@@ -1,0 +1,13 @@
+IFS=$'\n' read -d '' -r -a infile1 < infile1.txt
+IFS=$'\n' read -d '' -r -a infile2 < infile2.txt
+
+bismark --non_directional --temp_dir ./temp --genome GRCh38_p12 -1 ${infile1[$SLURM_ARRAY_TASK_ID]} -2 ${infile2[$SLURM_ARRAY_TASK_ID]} -o ./bam
+
+module load samtools
+samtools cat -o ../deduplicated_bam/SRR10251320_cat.bam 
+samtools sort -@ 10 -n ../deduplicated_bam/SRR10251320_cat.bam -o ../deduplicated_bam/SRR10251320_sorted.bam
+rm ../deduplicated_bam/SRR10251320_cat.bam
+
+deduplicate_bismark -p --bam SRR10251320_sorted.bam -o SRR10251320_sorted
+
+bismark_methylation_extractor --multicore 8 -p --no_overlap --comprehensive --bedGraph SRR10251320_sorted.deduplicated.bam -o ../result
