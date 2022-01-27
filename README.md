@@ -1,9 +1,9 @@
 # HOXB13_project
-DESeq2.R:   R code to do Gene-level differential expression analysis with DESeq2 for RNA-seq NGS data (e.g. fig1A and figS1A genes)
+DESeq2.R:   R code to do gene-level differential expression analysis with DESeq2 for RNA-seq NGS data (fig1a and extended fig1a)
 
-Hist.R and MakeCurve2PDF.pl:  R/perl code to draw intensity plots (e.g. fig3E and fig3I)
+Hist.R and MakeCurve2PDF.pl:  R/perl code to draw intensity plots (fig3d and extended fig3c)
 
-MA_plot.R:  R code to draw MA plots (e.g. fig3C and figS3C)
+MA_plot.R:  R code to draw MA plots (extended fig3a and extended fig3b)
 
 NGS_pipeline.txt:   pipeline to process ChIP-seq and RNA-seq NGS data. BETA command for fig1G and deepTools commands to plot heatmaps (e.g. fig1H, fig3B and fig3D)
 
