@@ -5,7 +5,7 @@ Hist.R and MakeCurve2PDF.pl:  R/perl code to draw intensity plots (fig3d and ext
 
 MA_plot.R:  R code to draw MA plots (extended fig3a and extended fig3b)
 
-NGS_pipeline.txt:   pipeline to process ChIP-seq and RNA-seq NGS data. BETA command for fig1G and deepTools commands to plot heatmaps (e.g. fig1H, fig3B and fig3D)
+NGS_pipeline.txt:   pipeline to process ChIP-seq and RNA-seq NGS data. BETA command (fig1g) and deepTools commands to plot heatmaps (e.g. fig1h, fig3B and fig3D)
 
 WCDT_correlation_plot.R:  R code to draw corrleation plot with WCDT methylation data which were downloaded from dbGaP (e.g. figS7E)
 
