@@ -1,4 +1,4 @@
-inputFile="methylation_RNAexpression_cpg21_input.txt"                                   
+inputFile="./input/methylation_RNAexpression_cpg21_input.txt"                                   
 gene1="HOXB13_expression"                                            
 gene2="methylation_rate"                                               
 
@@ -15,7 +15,7 @@ pvalue=corT$p.value
 pval=signif(pvalue,4)
 pval=format(pval, scientific = TRUE)
 
-pdf(file="methylation_RNAexpression_cpg21.pdf",width =7,height = 7)                  
+pdf(file="./result/methylation_RNAexpression_cpg21.pdf",width =7,height = 7)                  
 plot(x,y, 
     type="p",
     pch=16,
