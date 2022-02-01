@@ -1,20 +1,34 @@
 library(pheatmap)
-
-setwd("D:\\kevin\\2020_07_12")
-heatdata1=read.table("USP7_BUB3_FOXA1_co_regulated_gene_pheatmap.txt", sep="\t", header=TRUE)
-heatdata2=heatdata1[,2:13]
+heatdata1=read.table("./input/HOXB13_regulated_gene_rnaseq_heatmap_in_mr163-mr170_by_foldchange.txt", sep="\t", header=TRUE)
+heatdata2=heatdata1[,2:3]
 rownames(heatdata2) = heatdata1[,1]
 
 drows = dist(heatdata2, method = "minkowski")
 dcols = dist(t(heatdata2), method = "minkowski")
 
-pdf(file = "USP7_BUB3_FOXA1_co_regulated_gene_pheatmap.pdf", onefile=FALSE)
-map = pheatmap(heatdata2, cellwidth = 10, cellheight = 1, scale="row", breaks = seq(-3, 3, 0.01), 
-		border_color="gray", cluster_cols = FALSE, cluster_row=TRUE, 
-		color = colorRampPalette(c("navy", "white", "firebrick3"))(600), fontsize_row=8, fontsize_col=8, fontsize=8) 
+pdf(file = "./result/HOXB13_regulated_gene_rnaseq_heatmap_in_mr163-mr170_by_foldchange_pheatmap.pdf", onefile=FALSE)
+pheatmap(heatdata2, cellwidth = 20, cellheight = 1, scale="none", breaks = seq(-3, 3, 0.001), 
+		border_color="gray", cluster_cols = FALSE, cluster_row=FALSE, 
+		color = colorRampPalette(c("navy", "white", "firebrick3"))(6000), fontsize_row=5, fontsize_col=4, fontsize=6) 
+dev.off()
 
-##Extracting gene names of a cluster in heatmap
-heatdata2[map$tree_row$order,]
-write.table(heatdata2[map$tree_row$order,], "USP7_BUB3_FOXA1_co_regulated_gene_pheatmap_labels.txt",sep="\t", row.names=TRUE)
 
+
+
+
+
+
+
+library(pheatmap)
+heatdata1=read.table("./input/HDAC3_regulated_gene_rnaseq_heatmap_in_mr163-mr170_by_foldchange.txt", sep="\t", header=TRUE)
+heatdata2=heatdata1[,2:3]
+rownames(heatdata2) = heatdata1[,1]
+
+drows = dist(heatdata2, method = "minkowski")
+dcols = dist(t(heatdata2), method = "minkowski")
+
+pdf(file = "./result/HDAC3_regulated_gene_rnaseq_heatmap_in_mr163-mr170_by_foldchange_pheatmap.pdf", onefile=FALSE)
+pheatmap(heatdata2, cellwidth = 20, cellheight = 0.6, scale="none", breaks = seq(-3, 3, 0.001), 
+		border_color="gray", cluster_cols = FALSE, cluster_row=FALSE, 
+		color = colorRampPalette(c("navy", "white", "firebrick3"))(6000), fontsize_row=5, fontsize_col=4, fontsize=6) 
 dev.off()
