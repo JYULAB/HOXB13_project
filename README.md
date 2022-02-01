@@ -24,3 +24,7 @@ methylation_counts.pl:  perl code to calculate mythylation rates from the covera
 pheatmap.R:   R code to draw heatmaps using pheatmap package (Fig4c,h)
 
 venn_diagram.R:   R code to draw venn diagrams using Vennerable package (Fig.1i,3a, extended data Fig.3c,4a and supplementary Fig.2a)
+
+input folder:   Figure input text files
+
+result folder:   Figure results
