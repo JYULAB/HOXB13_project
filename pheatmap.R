@@ -13,12 +13,6 @@ pheatmap(heatdata2, cellwidth = 20, cellheight = 1, scale="none", breaks = seq(-
 dev.off()
 
 
-
-
-
-
-
-
 library(pheatmap)
 heatdata1=read.table("./input/HDAC3_regulated_gene_rnaseq_heatmap_in_mr163-mr170_by_foldchange.txt", sep="\t", header=TRUE)
 heatdata2=heatdata1[,2:3]
