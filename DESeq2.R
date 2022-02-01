@@ -1,4 +1,4 @@
-countdata <- read.table("./input/mr88_mr89_mr90_mr91", header=TRUE, row.names=1)
+countdata <- read.table("./input/mr88_mr89_mr90_mr91.txt", header=TRUE, row.names=1)
 # Convert to matrix
 countdata <- as.matrix(countdata)
 head(countdata)
