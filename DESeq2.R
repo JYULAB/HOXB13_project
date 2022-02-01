@@ -26,4 +26,4 @@ resdata <- merge(as.data.frame(res), as.data.frame(counts(dds, normalized=TRUE))
 names(resdata)[1] <- "Gene"
 head(resdata)
 ## Write results
-write.csv(resdata, file="mr88_mr89_mr90_mr91_diffexpr-results.csv")
+write.csv(resdata, file="./result/mr88_mr89_mr90_mr91_diffexpr-results.csv")
