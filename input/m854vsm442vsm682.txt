@@ -1,0 +1,8 @@
+m854_peak	m442_peak	m682_peak	Total	Name
+		X	20703	m682_peak
+	X		8897	m442_peak
+	X	X	953	m442_peak|m682_peak
+X			69707	m854_peak
+X		X	8411	m854_peak|m682_peak
+X	X		9406	m854_peak|m442_peak
+X	X	X	3897	m854_peak|m442_peak|m682_peak
