@@ -1,7 +1,5 @@
 ------MA plot by log2 value add intensity of HOXB13 (m854) as color
-
-setwd("D:\\xiaodong\\2020_07_22\\plot")
-data <- read.table("HDAC3_peaks_data_for_ma_plot_tag_counts_m682_vs_m683_add_m854.txt", header=TRUE)
+data <- read.table("./input/HDAC3_peaks_data_for_ma_plot_tag_counts_m682_vs_m683_add_m854.txt", header=TRUE)
 #data = data[data$control>=1 & data$treatment>=1,]
 data = data[order(data$HOXB13),]   # sort by intensity of HOXB13
 a <- data$control
@@ -34,9 +32,4 @@ unchanged = length(y[y<1 & y>-1])
 text(16, -4, up, cex = .8, col="black")
 text(16, -7, unchanged, cex = .8, col="black")
 text(16, -10, down, cex = .8, col="black")
-savePlot(filename = "HDAC3_MA_plot_m682_vs_m683_addm854", type = "pdf")
-
-legend_image <- as.raster(matrix(rev(rbPal(20)), ncol=1))
-plot(c(0,2),c(0,1),type = 'n', main="pGIPZ HOXB13 enrichment (log2)", axes = F,xlab = '', ylab = '')
-rasterImage(legend_image, 0,0,1,1)
-savePlot(filename = "HDAC3_MA_plot_m682_vs_m683_addm854_legend", type = "pdf")
+savePlot(filename = "./result/HDAC3_MA_plot_m682_vs_m683_addm854", type = "pdf")
