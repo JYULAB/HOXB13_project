@@ -17,3 +17,4 @@ plot(cbind(b2[1,]/1000,b3),type="p",xlab="HOXB13 location (kb) at Chromosome 17"
 points(cbind(a2[1,]/1000,a3),type="p",col = 'red', pch = 16, lwd = 3, cex = 1)
 points(cbind(d2[1,]/1000,d3),type="p",col = 'darkolivegreen', pch = 16, lwd = 3, cex = 1)
 legend('topright', c("tumor", "HOXB13 low CRPC", "HOXB13 high CRPC"), lty=1, col=c('darkolivegreen', 'blue', 'red'), bty='n', cex=1, lwd = 3)
+pdf(file="./result/tumor_HOXB13high18CRPC_HOXB13low18CRPC_result.pdf",width =7,height = 7)   
